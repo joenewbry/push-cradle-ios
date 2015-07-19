@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F66848616079D956A87DD78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5449DD1E29F13EAF85697321 /* libPods.a */; };
 		D8953BDD1B560DD3001CA894 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BDC1B560DD3001CA894 /* main.m */; };
 		D8953BE01B560DD3001CA894 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BDF1B560DD3001CA894 /* AppDelegate.m */; };
-		D8953BE31B560DD3001CA894 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BE21B560DD3001CA894 /* FirstViewController.m */; };
-		D8953BE61B560DD3001CA894 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BE51B560DD3001CA894 /* SecondViewController.m */; };
+		D8953BE31B560DD3001CA894 /* PushAndGPSStateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BE21B560DD3001CA894 /* PushAndGPSStateViewController.m */; };
+		D8953BE61B560DD3001CA894 /* GPSHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BE51B560DD3001CA894 /* GPSHistoryViewController.m */; };
 		D8953BE91B560DD3001CA894 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8953BE71B560DD3001CA894 /* Main.storyboard */; };
 		D8953BEB1B560DD3001CA894 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8953BEA1B560DD3001CA894 /* Images.xcassets */; };
 		D8953BEE1B560DD3001CA894 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8953BEC1B560DD3001CA894 /* LaunchScreen.xib */; };
 		D8953BFA1B560DD3001CA894 /* Push_CradleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953BF91B560DD3001CA894 /* Push_CradleTests.m */; };
+		D8953C051B561B82001CA894 /* JSNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8953C041B561B82001CA894 /* JSNLocation.m */; };
+		D8EFE7371B5AD69A0088C87E /* NSDictionary+PushCradle.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EFE7361B5AD69A0088C87E /* NSDictionary+PushCradle.m */; };
+		D8EFE7391B5AE8C40088C87E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8EFE7381B5AE8C40088C87E /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,21 +32,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1606FA2E209DAD97193F8FF8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		2612DADC603F11908CFC02BB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5449DD1E29F13EAF85697321 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8953BD71B560DD3001CA894 /* Push Cradle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Push Cradle.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8953BDB1B560DD3001CA894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8953BDC1B560DD3001CA894 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8953BDE1B560DD3001CA894 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D8953BDF1B560DD3001CA894 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D8953BE11B560DD3001CA894 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		D8953BE21B560DD3001CA894 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		D8953BE41B560DD3001CA894 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		D8953BE51B560DD3001CA894 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		D8953BE11B560DD3001CA894 /* PushAndGPSStateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushAndGPSStateViewController.h; sourceTree = "<group>"; };
+		D8953BE21B560DD3001CA894 /* PushAndGPSStateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushAndGPSStateViewController.m; sourceTree = "<group>"; };
+		D8953BE41B560DD3001CA894 /* GPSHistoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPSHistoryViewController.h; sourceTree = "<group>"; };
+		D8953BE51B560DD3001CA894 /* GPSHistoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPSHistoryViewController.m; sourceTree = "<group>"; };
 		D8953BE81B560DD3001CA894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8953BEA1B560DD3001CA894 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D8953BED1B560DD3001CA894 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D8953BF31B560DD3001CA894 /* Push CradleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Push CradleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8953BF81B560DD3001CA894 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8953BF91B560DD3001CA894 /* Push_CradleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Push_CradleTests.m; sourceTree = "<group>"; };
+		D8953C031B561B82001CA894 /* JSNLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSNLocation.h; sourceTree = "<group>"; };
+		D8953C041B561B82001CA894 /* JSNLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSNLocation.m; sourceTree = "<group>"; };
+		D8EFE7351B5AD69A0088C87E /* NSDictionary+PushCradle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+PushCradle.h"; sourceTree = "<group>"; };
+		D8EFE7361B5AD69A0088C87E /* NSDictionary+PushCradle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+PushCradle.m"; sourceTree = "<group>"; };
+		D8EFE7381B5AE8C40088C87E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EFE7391B5AE8C40088C87E /* AdSupport.framework in Frameworks */,
+				5F66848616079D956A87DD78 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +77,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		227D2BB814E263254BFC9E27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1606FA2E209DAD97193F8FF8 /* Pods.debug.xcconfig */,
+				2612DADC603F11908CFC02BB /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F1DEB05A81D7B4DCEC9C07C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8EFE7381B5AE8C40088C87E /* AdSupport.framework */,
+				5449DD1E29F13EAF85697321 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8953BCE1B560DD3001CA894 = {
 			isa = PBXGroup;
 			children = (
 				D8953BD91B560DD3001CA894 /* Push Cradle */,
 				D8953BF61B560DD3001CA894 /* Push CradleTests */,
 				D8953BD81B560DD3001CA894 /* Products */,
+				227D2BB814E263254BFC9E27 /* Pods */,
+				3F1DEB05A81D7B4DCEC9C07C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,12 +118,16 @@
 		D8953BD91B560DD3001CA894 /* Push Cradle */ = {
 			isa = PBXGroup;
 			children = (
+				D8953C031B561B82001CA894 /* JSNLocation.h */,
+				D8953C041B561B82001CA894 /* JSNLocation.m */,
 				D8953BDE1B560DD3001CA894 /* AppDelegate.h */,
 				D8953BDF1B560DD3001CA894 /* AppDelegate.m */,
-				D8953BE11B560DD3001CA894 /* FirstViewController.h */,
-				D8953BE21B560DD3001CA894 /* FirstViewController.m */,
-				D8953BE41B560DD3001CA894 /* SecondViewController.h */,
-				D8953BE51B560DD3001CA894 /* SecondViewController.m */,
+				D8EFE7351B5AD69A0088C87E /* NSDictionary+PushCradle.h */,
+				D8EFE7361B5AD69A0088C87E /* NSDictionary+PushCradle.m */,
+				D8953BE11B560DD3001CA894 /* PushAndGPSStateViewController.h */,
+				D8953BE21B560DD3001CA894 /* PushAndGPSStateViewController.m */,
+				D8953BE41B560DD3001CA894 /* GPSHistoryViewController.h */,
+				D8953BE51B560DD3001CA894 /* GPSHistoryViewController.m */,
 				D8953BE71B560DD3001CA894 /* Main.storyboard */,
 				D8953BEA1B560DD3001CA894 /* Images.xcassets */,
 				D8953BEC1B560DD3001CA894 /* LaunchScreen.xib */,
@@ -131,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8953BFD1B560DD3001CA894 /* Build configuration list for PBXNativeTarget "Push Cradle" */;
 			buildPhases = (
+				1233CF9DBF43006DD7A90635 /* Check Pods Manifest.lock */,
 				D8953BD31B560DD3001CA894 /* Sources */,
 				D8953BD41B560DD3001CA894 /* Frameworks */,
 				D8953BD51B560DD3001CA894 /* Resources */,
+				7FDB2C713258DDB2F5271DBC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -219,15 +259,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1233CF9DBF43006DD7A90635 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7FDB2C713258DDB2F5271DBC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8953BD31B560DD3001CA894 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8953BE61B560DD3001CA894 /* SecondViewController.m in Sources */,
+				D8953BE61B560DD3001CA894 /* GPSHistoryViewController.m in Sources */,
+				D8EFE7371B5AD69A0088C87E /* NSDictionary+PushCradle.m in Sources */,
 				D8953BE01B560DD3001CA894 /* AppDelegate.m in Sources */,
-				D8953BE31B560DD3001CA894 /* FirstViewController.m in Sources */,
+				D8953BE31B560DD3001CA894 /* PushAndGPSStateViewController.m in Sources */,
 				D8953BDD1B560DD3001CA894 /* main.m in Sources */,
+				D8953C051B561B82001CA894 /* JSNLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +426,11 @@
 		};
 		D8953BFE1B560DD3001CA894 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1606FA2E209DAD97193F8FF8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Push Cradle/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -361,9 +438,11 @@
 		};
 		D8953BFF1B560DD3001CA894 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2612DADC603F11908CFC02BB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Push Cradle/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -422,6 +501,7 @@
 				D8953BFF1B560DD3001CA894 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D8953C001B560DD3001CA894 /* Build configuration list for PBXNativeTarget "Push CradleTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +510,7 @@
 				D8953C021B560DD3001CA894 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

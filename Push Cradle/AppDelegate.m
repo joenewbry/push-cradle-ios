@@ -7,8 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import <Realm/Realm.h>
+#import <AFNetworking/AFNetworking.h>
+#import "JSNLocation.h"
+#import "NSDictionary+PushCradle.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface AppDelegate ()
+
+@property NSTimer *locationUpdateTimer;
 
 @end
 
@@ -17,7 +24,84 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    // run migrations before opening default realm
+
+    [RLMRealm setSchemaVersion:1 forRealmAtPath:[RLMRealm defaultRealmPath] withMigrationBlock:^(RLMMigration *migration, uint64_t oldSchemaVersion) {
+        if (oldSchemaVersion < 1) {
+//            [migration enumerateObjects:JSNLocation.className block:^(JSNLocation *oldObject, JSNLocation *newObject) {
+//                newObject[@"primaryKeyProperty"] = @"
+//            }];
+        };
+    }];
+
+    [RLMRealm defaultRealm];
+
+    // check to make sure we can do background processing
+    UIAlertView *alert;
+    //We have to make sure that the Background App Refresh is enable for the Location updates to work in the background.
+    if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied){
+        
+        alert = [[UIAlertView alloc]initWithTitle:@""
+                                          message:@"The app doesn't work without the Background App Refresh enabled. To turn it on, go to Settings > General > Background App Refresh"
+                                         delegate:nil
+                                cancelButtonTitle:@"Ok"
+                                otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }else if([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusRestricted){
+        
+        alert = [[UIAlertView alloc]initWithTitle:@""
+                                          message:@"The functions of this app are limited because the Background App Refresh is disable."
+                                         delegate:nil
+                                cancelButtonTitle:@"Ok"
+                                otherButtonTitles:nil, nil];
+        [alert show];
+        
+    } else{
+
+        // send locations to server every 10 seconds
+        NSTimeInterval time = 10.0;
+        self.locationUpdateTimer = [NSTimer scheduledTimerWithTimeInterval:time
+                                         target:self
+                                       selector:@selector(updateLocation)
+                                       userInfo:nil
+                                        repeats:YES];
+    }
+
     return YES;
+}
+
+- (void)updateLocation
+{
+   RLMResults *locations = [JSNLocation objectsInRealm:[RLMRealm defaultRealm] where:@"savedToServer == false"];
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary convertLocations:locations]];
+
+    NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    [params setValue:idfa forKey:@"idfa"];
+
+    if (locations.count > 0) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager POST:@"http://localhost:3000/v1/locations" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"]) {
+                // stranger danger
+                NSArray *savedObjectIds = (NSArray *)[responseObject objectForKey:@"objects_saved"];
+
+                [[RLMRealm defaultRealm] beginWriteTransaction];
+                for (int i = 0; i < [savedObjectIds count]; i ++) {
+                    NSString *objectId = savedObjectIds[i];
+                    JSNLocation *aLocation = [JSNLocation objectInRealm:[RLMRealm defaultRealm] forPrimaryKey:objectId];
+                    aLocation.savedToServer = YES;
+                }
+                [[RLMRealm defaultRealm] commitWriteTransaction];
+                
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Request failed");
+        }];
+    }
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -39,7 +123,25 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    UIApplication* app = [UIApplication sharedApplication];
+    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+
+    // Clear out the old notification before scheduling a new one.
+    if ([oldNotifications count] > 0)
+        [app cancelAllLocalNotifications];
+
+    // Create a new notification.
+    UILocalNotification* alarm = [[UILocalNotification alloc] init];
+    if (alarm)
+    {
+        alarm.fireDate = [NSDate date];
+        alarm.timeZone = [NSTimeZone defaultTimeZone];
+        alarm.repeatInterval = 0;
+        alarm.soundName = UILocalNotificationDefaultSoundName;
+        alarm.alertBody = @"No longer tracking location because application is terminated";
+        
+        [app scheduleLocalNotification:alarm];
+    }
 }
 
 @end
